@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 import { createTheme, useMediaQuery } from '@mui/material';
 
-export const ColorModeContext = React.createContext({
+const ColorModeContext = React.createContext({
   toggleColorMode: () => {}
 });
 // This implementation is from emotion-js
@@ -18,7 +18,7 @@ export default function ThemeRegistry(props: {
 }) {
   const { options, children } = props;
   const [mode, setMode] = React.useState<'light' | 'dark'>(
-    useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'light'
+    useMediaQuery('(prefers-color-scheme: light)') ? 'light' : 'dark'
   );
   const colorMode = React.useMemo(
     () => ({
@@ -33,7 +33,7 @@ export default function ThemeRegistry(props: {
     () =>
       createTheme({
         palette: {
-          mode: mode ? 'dark' : 'light',
+          mode: mode ? 'light' : 'dark',
           primary: {
             main: '#1976d2'
           },

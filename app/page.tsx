@@ -1,5 +1,3 @@
-'use client';
-
 import {
   AppBar,
   Box,
@@ -8,15 +6,13 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
-import { useContext } from 'react';
-import { ColorModeContext } from './theme/ThemeRegistry';
+import VehicleMakeIdList from './components/VehicleMakeIdList';
 
 export default function Home() {
-  const colorMode = useContext(ColorModeContext);
   return (
-    <Box>
+    <>
       <Container>
-        <AppBar position='static'>
+        <AppBar position='static' sx={{ marginBottom: 2 }}>
           <Toolbar variant='dense'>
             <IconButton
               edge='start'
@@ -24,11 +20,13 @@ export default function Home() {
               sx={{ mr: 2 }}
             ></IconButton>
             <Typography variant='h6' component='div'>
-              Photos
+              ICBC
             </Typography>
           </Toolbar>
         </AppBar>
+
+        <VehicleMakeIdList />
       </Container>
-    </Box>
+    </>
   );
 }
