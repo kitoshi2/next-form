@@ -8,6 +8,10 @@ export interface VehicleMake {
   Model_Name: string;
   Value: number;
 }
+export interface Vehicles {
+  vehicles: VehicleMake[];
+}
+
 const vehicleMakes: VehicleMake[] = [
   {
     Make_ID: '1',

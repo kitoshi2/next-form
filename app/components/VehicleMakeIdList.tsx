@@ -7,15 +7,11 @@ import {
   Skeleton,
   Typography
 } from '@mui/material';
-import { VehicleMake } from '../api/vehicles/route';
+import { VehicleMake, Vehicles } from '../api/vehicles/route';
 import { Key } from 'react';
 import VehicleAddForm from './VehicleAddForm';
 
-export default async function VehicleMakeIdList() {
-  const vehicles = await fetch('http://localhost:3000/api/vehicles').then(
-    (res) => res.json()
-  );
-
+export default async function VehicleMakeIdList({ vehicles }: Vehicles) {
   return (
     <Grid container spacing={4}>
       {vehicles ? (
@@ -58,4 +54,19 @@ export default async function VehicleMakeIdList() {
       </Grid>
     </Grid>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch('/api/vehicles');
+  const vehicles: Vehicles = await res.json();
+
+  return {
+    props: {
+      vehicles
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 10 // In seconds
+  };
 }

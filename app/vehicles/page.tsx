@@ -4,7 +4,7 @@ import VehicleMakeIdList from '../components/VehicleMakeIdList';
 export default function Vehicles() {
   return (
     <>
-      <VehicleMakeIdList />
+      <VehicleMakeIdList vehicles={[]} />
     </>
   );
 }
