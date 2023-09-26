@@ -3,16 +3,9 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
+import { VehicleMake } from '../api/vehicles/route';
 
-interface FormValues {
-  Make_ID: string;
-  Make_Name: string;
-  Model_ID: number;
-  Model_Name: string;
-  Value: number;
-}
-
-const validationSchema: yup.Schema<FormValues> = yup.object({
+const validationSchema: yup.Schema<VehicleMake> = yup.object({
   Make_ID: yup
     .string()
     .min(1, 'Enter a valid vehicle ID')
@@ -85,10 +78,10 @@ export default function VehicleAddForm() {
         <TextField
           margin='normal'
           fullWidth
-          id='Make_Name'
-          name='Make_Name'
-          label='Make_Name'
-          type='Make_Name'
+          id='Model_ID'
+          name='Model_ID'
+          label='Model_ID'
+          type='Model_ID'
           value={formik.values.Model_ID}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -98,10 +91,10 @@ export default function VehicleAddForm() {
         <TextField
           margin='normal'
           fullWidth
-          id='Model_ID'
-          name='Model_ID'
-          label='Model_ID'
-          type='Model_ID'
+          id='Model_Name'
+          name='Model_Name'
+          label='Model_Name'
+          type='Model_Name'
           value={formik.values.Model_Name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -111,10 +104,10 @@ export default function VehicleAddForm() {
         <TextField
           margin='normal'
           fullWidth
-          id='Make_Name'
-          name='Make_Name'
-          label='Make_Name'
-          type='Make_Name'
+          id='Value'
+          name='Value'
+          label='Value'
+          type='Value'
           value={formik.values.Value}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

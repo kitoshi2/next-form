@@ -17,11 +17,11 @@ export default async function VehicleMakeIdList() {
   );
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={4}>
       {vehicles ? (
         vehicles?.map((car: VehicleMake, key: Key) => {
           return (
-            <Grid item xs={4} key={key}>
+            <Grid item xs={4} key={key} sx={{ paddingX: 2 }} zeroMinWidth>
               <Card>
                 <CardContent>
                   <Typography
