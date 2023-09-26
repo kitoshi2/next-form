@@ -6,7 +6,7 @@ export async function GET() {
   return NextResponse.json(exposure);
 }
 
-export async function POST(params: string) {
+export async function POST() {
   return NextResponse.json(
     {
       message: 'Not Implemented'
