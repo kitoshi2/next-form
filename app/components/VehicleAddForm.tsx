@@ -3,7 +3,7 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
-import { VehicleMake } from '../app/api/vehicles/route';
+import { VehicleMake } from '../api/vehicles/route';
 
 const validationSchema: yup.Schema<VehicleMake> = yup.object({
   Make_ID: yup
