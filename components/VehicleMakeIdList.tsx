@@ -7,7 +7,7 @@ import {
   Skeleton,
   Typography
 } from '@mui/material';
-import { VehicleMake } from '../api/vehicles/route';
+import { VehicleMake } from '../app/api/vehicles/route';
 import { Key } from 'react';
 import VehicleAddForm from './VehicleAddForm';
 
