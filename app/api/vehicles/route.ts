@@ -8,7 +8,7 @@ export interface VehicleMake {
   Model_Name: string;
   Value: number;
 }
-export interface Vehicles {
+export interface VehicleList {
   vehicles: VehicleMake[];
 }
 

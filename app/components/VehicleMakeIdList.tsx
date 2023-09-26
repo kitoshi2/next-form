@@ -7,15 +7,30 @@ import {
   Skeleton,
   Typography
 } from '@mui/material';
-import { VehicleMake, Vehicles } from '../api/vehicles/route';
-import { Key } from 'react';
+import { VehicleList, VehicleMake } from '../api/vehicles/route';
+import { Key, useState } from 'react';
 import VehicleAddForm from './VehicleAddForm';
 
-export default async function VehicleMakeIdList({ vehicles }: Vehicles) {
+async function getData() {
+  const res = await fetch('http://localhost:3000/api/vehicles');
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+export default async function VehicleMakeIdList() {
+  const vehicles = await getData();
+
   return (
     <Grid container spacing={4}>
       {vehicles ? (
-        vehicles?.map((car: VehicleMake, key: Key) => {
+        vehicles.map((car: VehicleMake, key: Key) => {
           return (
             <Grid item xs={4} key={key} sx={{ paddingX: 2 }} zeroMinWidth>
               <Card>
@@ -54,19 +69,4 @@ export default async function VehicleMakeIdList({ vehicles }: Vehicles) {
       </Grid>
     </Grid>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch('/api/vehicles');
-  const vehicles: Vehicles = await res.json();
-
-  return {
-    props: {
-      vehicles
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10 // In seconds
-  };
 }
