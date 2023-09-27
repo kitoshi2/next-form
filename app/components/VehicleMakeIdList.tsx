@@ -12,7 +12,7 @@ import { Key, useState } from 'react';
 import VehicleAddForm from './VehicleAddForm';
 
 async function getData() {
-  const res = await fetch('http://localhost:3000/api/vehicles');
+  const res = await fetch('http://127.0.0.1:3000/api/vehicles');
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
