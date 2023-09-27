@@ -8,8 +8,8 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
-import ClearButton from '../components/ClearPageButton';
-import ReturnHomeButton from '../components/ReturnHomeButton';
+import ClearButton from '../(components)/ClearPageButton';
+import ReturnHomeButton from '../(components)/ReturnHomeButton';
 
 export default function Navbar() {
   return (

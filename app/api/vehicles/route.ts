@@ -12,7 +12,7 @@ export interface VehicleList {
   vehicles: VehicleMake[];
 }
 
-const vehicleMakes: VehicleMake[] = [
+export const vehicleMakes: VehicleMake[] = [
   {
     Make_ID: '1',
     Make_Name: 'Toyota',

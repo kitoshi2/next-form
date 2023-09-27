@@ -10,6 +10,7 @@ import {
 import { VehicleList, VehicleMake } from '../api/vehicles/route';
 import { Key, useState } from 'react';
 import VehicleAddForm from './VehicleAddForm';
+import { loadVehicles } from '../(library)/static_data';
 
 async function getData() {
   const res = await fetch('http://127.0.0.1:3000/api/vehicles');
@@ -25,7 +26,7 @@ async function getData() {
 }
 
 export default async function VehicleMakeIdList() {
-  const vehicles = await getData();
+  const vehicles = await loadVehicles();
 
   return (
     <Grid container spacing={4}>
